@@ -45,4 +45,22 @@ class PrimeCircularSpec extends Specification {
 			[1,2,3] as Integer[]	|	0		|	[1,2,3]
 			[1,2,3] as Integer[]	|	2		|	[2,3,1]
 	}
+
+	def "check number to array mapper"() {
+		given:
+			def solution = new PrimeCircular()
+		expect:
+			solution.number2array(n) == a
+		where:
+			n       |   a
+			1       |   [1]
+			2       |   [2]
+			9       |   [9]
+			0       |   [0]
+			10      |   [1, 0]
+			15      |   [1, 5]
+			123     |   [1, 2, 3]
+			154     |   [1, 5, 4]
+			1456731 |   [1, 4, 5, 6, 7, 3, 1]
+	}
 }

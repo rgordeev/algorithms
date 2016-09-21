@@ -1,5 +1,9 @@
 package ru.tgtu.algorithms;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * A number is called a circular prime if it is prime and all of its rotations are primes.
@@ -42,6 +46,16 @@ public class PrimeCircular {
 		for (int i = 0; i < m; i++)
 			result[i] = a[(i + m - step) % m];
 		return result;
+	}
+
+	protected Integer[] number2array(Integer n) {
+		LinkedList<Integer> parts = new LinkedList<>();
+		if (n == 0) parts.push(n);
+		while(n > 0) {
+			parts.push(n % 10);
+			n = n / 10;
+		}
+		return parts.toArray(new Integer[0]);
 	}
 
 }
